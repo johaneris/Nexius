@@ -5,24 +5,41 @@
     box-sizing: border-box;
 }
 
+/* Variables y cosas */
+:root {
+    --accentcolor-dark: #003366;
+    --accentcolor: #004080;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    transition: background-color 0.5s ease;
+    /*transition: background-color 0.5s ease;*/
 }
 
 header {
-    background: #003366;
+    background: var(--accentcolor-dark);;
     color: #fff;
-    padding: 20px 0;
     text-align: center;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 30px;
+}
+
+header .logo img {
+    width: 50px;
+    height: auto;
 }
 
 header nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     transition: background-color 0.3s ease;
 }
@@ -45,17 +62,39 @@ header nav ul li a:hover {
 
 /* Hero */
 .hero {
-    background-color: #004080;
+    background-image: url('images/background-main.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+
     color: white;
-    padding: 100px 20px;
+    height: 350px;
     text-align: center;
-    transition: opacity 0.5s ease;
+    transition: none;
     position: relative;
+}
+
+.hero-content {
+    height: 100%;
+    width: 100%;
+
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    contain: layout;
+}
+
+.hero-text {
+    animation: fadeIn 1s ease-in-out;
+    text-shadow: black 2px 2px 20px;
 }
 
 .hero h1 {
     font-size: 3rem;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .hero .btn {
@@ -88,13 +127,13 @@ header nav ul li a:hover {
 }
 
 h2 {
-    color: #003366;
+    color: var(--accentcolor);
     font-size: 2.5rem;
     margin-bottom: 20px;
     transition: color 0.3s ease;
 }
 
-p, ul {
+p  {
     margin-bottom: 20px;
 }
 
@@ -117,11 +156,18 @@ p, ul {
 }
 
 footer {
-    background-color: #003366;
+    background-color: var(--accentcolor);
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+
+    & p {
+        margin: 0px;
+        padding: 0px;
+    }
 }
 
 /* Animaciones */
@@ -133,5 +179,111 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.hero-content {
+    transition: none;
+    animation: none;
+}
+
+#empresa .container {
+    padding: 50px;
+    background-color: white;
+}
+
+/*
+#empresa .container .text-container {
+    box-shadow: rgba(0, 0, 0, 0.418) 0px 0px 30px;
+    padding: 20px;
+    background-color: var(--accentcolor-dark);
+    text-align: left;
+    border-radius: 10px;
+
+    & h2 {
+        text-align: center;
+        color: white;
+    }
+
+    & p {
+        color: white;
+    }
+
+    & hr {
+        border-bottom: solid white 2px;
+    }
+
+    margin-bottom: 50px;
+}*/
+
+#empresa .container .text-container {
+    margin-bottom: 70px;
+    & h2 {
+        text-align: center;
+    }
+}
+
+#proyectos .container {
+    margin: 50px;
+    & h2 {
+        text-align: center;
+    }
+}
+
+#proyecto .container {
+    margin: 50px;
+    & h2 {
+        text-align: center;
+    }
+
+    & h3 {
+        font-style: bold;;
+    }
+}
+
+#fundadores .container .founders .founder img {
+    max-width: 100%;
+}
+#fundadores .container {
+    margin: 50px;
+    & h2 {
+        text-align: center;
+    }
+}
+
+#contacto {
+    margin: 50px;
+}
+
+#contacto .container {
+    text-align: center;
+}
+
+#contacto .container #contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 400px;
+    padding-right: 400px;
+    
+    & textarea, input {
+        font-family: 'Poppins', 'Arial', sans-serif;
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 15px;
+        resize: vertical;
+    }
+
+    & button {
+        padding: 15px;
+        font-family: 'Poppins', 'Arial', sans-serif;
+        font-size: 2rem;
+        color: white;
+        background-color: var(--accentcolor-dark);
+        border-radius: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: center;
     }
 }
